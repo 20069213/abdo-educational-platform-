@@ -440,3 +440,19 @@ body {
 .card a:visited {
   color: white !important;
 } 
+
+.card {
+  color: white !important;
+}
+
+.card a,
+.card a:visited,
+.card a:hover,
+.card a:active {
+  color: white !important;
+  text-decoration-color: white !important;
+}
+
+.card-title {
+  color: white !important;
+} 
