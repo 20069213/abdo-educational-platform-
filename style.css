@@ -436,3 +436,7 @@ body {
   color: white !important;
 } 
 
+.card a,
+.card a:visited {
+  color: white !important;
+} 
