@@ -86,6 +86,33 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
   
+  <script type="module">
+  import { getAuth, signInWithEmailAndPassword } 
+    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+  const auth = getAuth();
+
+  const emailInput = document.querySelector('input[type="text"]');
+  const passwordInput = document.querySelector('input[type="password"]');
+  const loginButton = document.querySelector('button');
+
+  loginButton.addEventListener("click", async () => {
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+
+    if (!email || !password) {
+      alert("اكتب البريد الإلكتروني وكلمة المرور");
+      return;
+    }
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      window.location.href = "index.html";
+    } catch (error) {
+      alert("فشل تسجيل الدخول: " + error.message);
+    }
+  });
+  </script>
 
 </body>
 </html>
