@@ -464,3 +464,16 @@ body {
 .card {
   transform: scale(1.05);
 } 
+
+ .cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+} 
