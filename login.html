@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تسجيل الدخول - Abdo Saad</title>
+  <title>تسجيل الدخول - منصة عبده سعد</title>
 
   <style>
     body {
@@ -17,81 +17,125 @@
       min-height: 100vh;
     }
 
-    .login-box {
+    .box {
       width: 90%;
       max-width: 380px;
       background: #101b34;
       padding: 30px 20px;
       border-radius: 20px;
       text-align: center;
-      box-shadow: 0 10px 30px #0008;
-    }
-
-    h1 {
-      margin-bottom: 25px;
     }
 
     input {
-      width: 90%;
+      box-sizing: border-box;
+      width: 100%;
       padding: 14px;
       margin: 8px 0;
-      border: none;
+      border: 0;
       border-radius: 10px;
       font-size: 16px;
     }
 
     button {
-      width: 97%;
+      width: 100%;
       padding: 14px;
-      margin-top: 15px;
-      border: none;
+      margin-top: 10px;
+      border: 0;
       border-radius: 10px;
       background: #2563eb;
       color: white;
       font-size: 17px;
+    }
+
+    #message {
+      margin-top: 15px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="login-box">
-    <h1>📚 Abdo Saad</h1>
+<div class="box">
+  <h1>📚 منصة عبده سعد</h1>
 
-    <input type="text" placeholder="اسم المستخدم">
+  <input id="email" type="email" placeholder="البريد الإلكتروني">
+  <input id="password" type="password" placeholder="كلمة المرور">
 
-    <input type="password" placeholder="كلمة المرور">
+  <button id="loginBtn">تسجيل الدخول</button>
+  <button id="signupBtn">إنشاء حساب جديد</button>
 
-    <button>تسجيل الدخول</button>
-  </div>
-  
-  <script type="module">
-  import { getAuth, signInWithEmailAndPassword } 
-    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  <p id="message"></p>
+</div>
 
-  const auth = getAuth();
+<script type="module">
 
-  const emailInput = document.querySelector('input[type="text"]');
-  const passwordInput = document.querySelector('input[type="password"]');
-  const loginButton = document.querySelector('button');
+  import { initializeApp }
+    from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
-  loginButton.addEventListener("click", async () => {
-    const email = emailInput.value.trim();
-    const password = passwordInput.value;
+  import {
+    getAuth,
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword
+  } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
-    if (!email || !password) {
-      alert("اكتب البريد الإلكتروني وكلمة المرور");
-      return;
-    }
+
+  // ضع firebaseConfig الخاص بمشروعك هنا
+  const firebaseConfig = {
+    
+  };
+
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+
+  const email = document.getElementById("email");
+  const password = document.getElementById("password");
+  const message = document.getElementById("message");
+
+
+  document.getElementById("signupBtn").onclick = async () => {
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      window.location.href = "index.html";
+
+      await createUserWithEmailAndPassword(
+        auth,
+        email.value.trim(),
+        password.value
+      );
+
+      message.textContent = "تم إنشاء الحساب بنجاح ✅";
+
     } catch (error) {
-      alert("فشل تسجيل الدخول: " + error.message);
+
+      message.textContent = "تعذر إنشاء الحساب.";
+
     }
-  });
-  </script>
+
+  };
+
+
+  document.getElementById("loginBtn").onclick = async () => {
+
+    try {
+
+      await signInWithEmailAndPassword(
+        auth,
+        email.value.trim(),
+        password.value
+      );
+
+      window.location.href = "index.html";
+
+    } catch (error) {
+
+      message.textContent = "البريد الإلكتروني أو كلمة المرور غير صحيحة.";
+
+    const app = initializeApp ( firebaseConfig );
+const analytics = getAnalytics ( app );
+
+  
+</script>
 
 </body>
 </html>
