@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>التقييمات المدرسية</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #0b1220;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      border-bottom: 1px solid #26324a;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 25px;
+    }
+
+    .back {
+      background: #18243a;
+      color: white;
+      text-decoration: none;
+      padding: 12px 16px;
+      border-radius: 12px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 25px 20px;
+    }
+
+    .card {
+      background: #111c31;
+      border: 1px solid #26324a;
+      border-radius: 20px;
+      padding: 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 20px #0005;
+    }
+
+    .icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .card h2 {
+      margin: 5px 0 10px;
+    }
+
+    .card p {
+      color: #aeb8c9;
+      line-height: 1.7;
+    }
+
+    .notice {
+      background: #17243a;
+      padding: 18px;
+      border-radius: 15px;
+      line-height: 1.9;
+      margin-top: 15px;
+    }
+
+    .price {
+      font-size: 23px;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    .whatsapp {
+      display: block;
+      background: #16a34a;
+      color: white;
+      text-decoration: none;
+      text-align: center;
+      padding: 16px;
+      border-radius: 13px;
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .stage {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .stage a {
+      background: #18243a;
+      color: white;
+      text-decoration: none;
+      text-align: center;
+      padding: 20px 10px;
+      border-radius: 15px;
+      border: 1px solid #26324a;
+      font-size: 18px;
+    }
+
+    @media (max-width: 600px) {
+      .stage {
+        grid-template-columns: 1fr;
+      }
+
+      .header h1 {
+        font-size: 21px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <h1>التقييمات المدرسية</h1>
+
+    <a href="index.html" class="back">
+      ← العودة للرئيسية
+    </a>
+  </div>
+
+  <div class="container">
+
+    <div class="card">
+
+      <div class="icon">📝</div>
+
+      <h2>التقييمات المدرسية</h2>
+
+      <p>
+        اختبر نفسك في المواد الدراسية
+        وتابع مستواك من خلال التقييمات.
+      </p>
+
+      <div class="notice">
+
+        🔒 التقييمات متاحة للمشتركين فقط.
+
+        <div class="price">
+          💰 سعر الاشتراك: 50 جنيه
+        </div>
+
+        <br>
+
+        للحصول على كود الاشتراك،
+        تواصل مع المطور على واتساب.
+
+      </div>
+
+      <a
+        class="whatsapp"
+        href="https://wa.me/201124094135?text=أريد%20الاشتراك%20في%20التقييمات%20المدرسية%20بسعر%2050%20جنيه"
+        target="_blank">
+        📱 تواصل مع المطور على واتساب
+      </a>
+
+    </div>
+
+    <div class="card">
+
+      <h2>📚 اختر الصف الدراسي</h2>
+
+      <div class="stage">
+
+        <a href="#">
+          📘 أولى ثانوي
+        </a>
+
+        <a href="#">
+          📗 تانية ثانوي
+        </a>
+
+        <a href="#">
+          📕 تالتة ثانوي
+        </a>
+
+        <a href="#">
+          🧪 مسار طب
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
