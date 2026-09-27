@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>الشروحات والمسارات</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px;
+      border-bottom: 3px solid #00e5c0;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    .back {
+      background: #222;
+      color: white;
+      text-decoration: none;
+      padding: 14px 20px;
+      border-radius: 15px;
+      font-size: 18px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 35px 22px;
+    }
+
+    .section-title {
+      color: #00f0c8;
+      font-size: 27px;
+      font-weight: bold;
+      margin: 15px 0 25px;
+      border-right: 6px solid #00f0c8;
+      padding-right: 15px;
+    }
+
+    .items {
+      display: grid;
+      gap: 20px;
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      background: #202020;
+      border: 1px solid #333;
+      border-radius: 20px;
+
+      padding: 25px;
+      color: white;
+      text-decoration: none;
+
+      font-size: 22px;
+    }
+
+    .arrow {
+      font-size: 30px;
+    }
+
+    .special {
+      margin-top: 55px;
+    }
+
+    .path {
+      display: block;
+      background: #1d2a40;
+      border: 2px solid #00e5c0;
+      border-radius: 20px;
+
+      padding: 28px 20px;
+
+      color: #00bfff;
+      text-decoration: none;
+
+      font-size: 25px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .header h1 {
+        font-size: 25px;
+      }
+
+      .back {
+        font-size: 16px;
+        padding: 12px 15px;
+      }
+
+      .item {
+        font-size: 20px;
+      }
+
+      .path {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+
+    <h1>الشروحات والمسارات</h1>
+
+    <a href="index.html" class="back">
+      ← العودة للرئيسية
+    </a>
+
+  </div>
+
+  <div class="container">
+
+    <div class="section-title">
+      📚 المواد الأساسية (العامة)
+    </div>
+
+    <div class="items">
+
+      <a href="#" class="item">
+        <span>📖 اللغة العربية</span>
+        <span class="arrow">←</span>
+      </a>
+
+      <a href="#" class="item">
+        <span>📖 التاريخ المصري</span>
+        <span class="arrow">←</span>
+      </a>
+
+      <a href="#" class="item">
+        <span>📖 اللغة الإنجليزية الأولى</span>
+        <span class="arrow">←</span>
+      </a>
+
+    </div>
+
+
+    <div class="special">
+
+      <div class="section-title">
+        🚀 مواد التخصصية
+      </div>
+
+      <a href="#" class="path">
+        🎯 مسار طب وعلوم الحياة / فيزياء
+        <br>
+        <span class="arrow">←</span>
+      </a>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
