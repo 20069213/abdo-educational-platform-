@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تقييمات تانية ثانوي</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #0b1220;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      padding: 22px;
+      text-align: center;
+      border-bottom: 1px solid #26324a;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 25px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 25px 20px;
+    }
+
+    .intro {
+      text-align: center;
+      color: #aeb8c9;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    .subjects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .subject {
+      display: block;
+      background: #111c31;
+      color: white;
+      text-decoration: none;
+      border: 1px solid #26324a;
+      border-radius: 18px;
+      padding: 25px 15px;
+      text-align: center;
+      font-size: 19px;
+      transition: 0.2s;
+    }
+
+    .subject:hover {
+      transform: translateY(-3px);
+    }
+
+    .icon {
+      display: block;
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .back {
+      display: block;
+      width: fit-content;
+      margin: 25px auto 0;
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .subjects {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <h1>📗 تقييمات تانية ثانوي</h1>
+  </div>
+
+  <div class="container">
+
+    <div class="intro">
+      اختر المادة التي تريد أداء التقييم الخاص بها.
+    </div>
+
+    <div class="subjects">
+
+      <a href="#" class="subject">
+        <span class="icon">📘</span>
+        اللغة العربية
+      </a>
+
+      <a href="#" class="subject">
+        <span class="icon">🇬🇧</span>
+        اللغة الإنجليزية
+      </a>
+
+      <a href="#" class="subject">
+        <span class="icon">📜</span>
+        التاريخ
+      </a>
+
+      <a href="#" class="subject">
+        <span class="icon">⚡</span>
+        الفيزياء
+      </a>
+
+    </div>
+
+    <a href="evaluations.html" class="back">
+      ← العودة للتقييمات
+    </a>
+
+  </div>
+
+</body>
+</html>
