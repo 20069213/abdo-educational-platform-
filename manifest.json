@@ -1,16 +1,19 @@
-
 {
-  "name": "منصتي التعليمية",
-  "short_name": "منصتي",
-  "start_url": "./",
-  "display": "standalone",
-  "background_color": "#050b18",
-  "theme_color": "#0878e8",
-  "icons": [
-    {
-      "src": "المنصات التعليمية.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+    "name": "منصتي التعليمية",
+    "short_name": "منصتي",
+    "description": "منصة تعليمية",
+    "start_url": "./index.html",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#050b18",
+    "theme_color": "#0878e8",
+
+    "icons": [
+        {
+            "src": "منصات التعليمية.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
 }
