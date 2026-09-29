@@ -1,213 +1,144 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المنصات التعليمية الرسمية</title>
 
-<title>المنصات التعليمية - منصة عبده سعد</title>
-
-<style>
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    background: #0b1428;
-    color: white;
-    font-family: Tahoma, Arial, sans-serif;
-}
-
-.header {
-    padding: 35px 25px 20px;
-}
-
-.home {
-    display: inline-block;
-    background: #35465d;
-    color: white;
-    text-decoration: none;
-    padding: 14px 25px;
-    border-radius: 14px;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.container {
-    background: #202d42;
-    margin: 20px;
-    padding: 30px 20px;
-    border-radius: 28px;
-}
-
-h1 {
-    text-align: center;
-    color: #31b9ff;
-    font-size: 32px;
-    margin: 0 0 30px;
-    padding-bottom: 25px;
-    border-bottom: 1px solid #3b4a5e;
-}
-
-.platform {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #0d172d;
-    border: 1px solid #30415a;
-    border-radius: 18px;
-    padding: 20px;
-    margin: 18px 0;
-    min-height: 80px;
-}
-
-.platform-name {
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.platform a {
-    color: #31b9ff;
-    text-decoration: none;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-@media (max-width: 500px) {
-    .platform-name {
-        font-size: 19px;
+  <style>
+    * {
+      box-sizing: border-box;
     }
 
-    h1 {
-        font-size: 28px;
+    body {
+      margin: 0;
+      background: #0b1220;
+      color: white;
+      font-family: Arial, sans-serif;
     }
-}
-</style>
+
+    .header {
+      text-align: center;
+      padding: 25px 15px;
+      border-bottom: 1px solid #26324a;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+
+    .header p {
+      color: #aeb8c9;
+      margin-top: 10px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 25px 15px;
+    }
+
+    .platforms {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .platform {
+      background: #111c31;
+      border: 1px solid #26324a;
+      border-radius: 18px;
+      padding: 25px 15px;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+    }
+
+    .icon {
+      font-size: 45px;
+      margin-bottom: 12px;
+    }
+
+    .platform h2 {
+      margin: 5px 0 10px;
+      font-size: 19px;
+    }
+
+    .platform p {
+      color: #aeb8c9;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #2563eb;
+      padding: 11px 20px;
+      border-radius: 10px;
+    }
+
+    .back {
+      display: block;
+      width: fit-content;
+      margin: 25px auto 0;
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .platforms {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="header">
-    <a href="index.html" class="home">🏠 الرئيسية</a>
-</div>
+  <div class="header">
+    <h1>🎓 المنصات التعليمية الرسمية</h1>
+    <p>منصات تعليمية تابعة لوزارة التربية والتعليم</p>
+  </div>
 
-<div class="container">
+  <div class="container">
 
-    <h1>🌐 المنصات التعليمية</h1>
+    <div class="platforms">
 
-    <div class="platform">
-        <span class="platform-name">🚀 منصة وزارة التربية والتعليم</span>
-        <a href="#" target="_blank">↗</a>
+      <a class="platform" href="https://moe.gov.eg/ar/" target="_blank">
+        <div class="icon">🏫</div>
+        <h2>وزارة التربية والتعليم</h2>
+        <p>الموقع الرسمي للوزارة وأهم الخدمات التعليمية.</p>
+        <span class="button">فتح المنصة</span>
+      </a>
+
+      <a class="platform" href="https://moe.gov.eg/ar/" target="_blank">
+        <div class="icon">📚</div>
+        <h2>المنصات التعليمية</h2>
+        <p>الوصول إلى المنصات والخدمات التعليمية الرسمية.</p>
+        <span class="button">فتح المنصة</span>
+      </a>
+
+      <a class="platform" href="https://developandchange.moe.gov.eg/" target="_blank">
+        <div class="icon">💻</div>
+        <h2>منصة التعلم الإلكتروني</h2>
+        <p>تعلم إلكتروني ومحتوى تعليمي عبر الإنترنت.</p>
+        <span class="button">فتح المنصة</span>
+      </a>
+
+      <a class="platform" href="https://nes-lms.moe.gov.eg/" target="_blank">
+        <div class="icon">🎓</div>
+        <h2>منصة التعلم LMS</h2>
+        <p>منصة تعليمية إلكترونية تابعة للوزارة.</p>
+        <span class="button">فتح المنصة</span>
+      </a>
+
     </div>
 
-    <div class="platform">
-        <span class="platform-name">🚀 منصة الأستاذ محمد صلاح (عربي)</span>
-        <a href="#" target="_blank">↗</a>
-    </div>
+    <a href="index.html" class="back">← العودة للرئيسية</a>
 
-    <div class="platform">
-        <span class="platform-name">🚀 منصة الدكتور رضا الفاروق (عربي)</span>
-        <a href="#" target="_blank">↗</a>
-    </div>
-
-    <div class="platform">
-        <span class="platform-name">🚀 منصة مستر النجاشي (لغة إنجليزية)</span>
-        <a href="#" target="_blank">↗</a>
-    </div>
-
-    <div class="platform">
-        <span class="platform-name">🚀 منصة عبقري (لغة إنجليزية)</span>
-        <a href="#" target="_blank">↗</a>
-    </div>
-
-    <div class="platform">
-        <span class="platform-name">🚀 منصة أحمد عصام (رياضيات)</span>
-        <a href="#" target="_blank">↗</a>
-    </div>
-
-    <div class="platform">
-        <span class="platform-name">🚀 منصة لطفي زهران (رياضيات)</span>
-        <a href="#" target="_blank">↗</a>
-    </div>
-
-    <div class="platform">
-        <span class="platform-name">🚀 منصة أسامة سعدالله (رياضيات)</span>
-        <a href="#" target="_blank">↗</a>
-    </div>
-
-    <div class="platform">
-        <span class="platform-name">🚀 منصة الدكتور عبدالجواد (كيمياء)</span>
-        <a href="#" target="_blank">↗</a>
-    </div>
-
-    <div class="platform">
-        <span class="platform-name">🚀 منصة الدكتور خالد صقر (علوم وكيمياء)</span>
-        <a href="#" target="_blank">↗</a>
-    </div>
-
-    <div class="platform">
-        <span class="platform-name">🚀 منصة عمرو الصيفي (كيمياء)</span>
-        <a href="#" target="_blank">↗</a>
-    </div>
-
-    <div class="platform">
-        <span class="platform-name">🚀 منصة عبدالله الحبشي (كيمياء)</span>
-        <a href="#" target="_blank">↗</a>
-    </div>
-
-    <div class="platform">
-        <span class="platform-name">🚀 منصة الدكتور جون (كيمياء)</span>
-        <a href="#" target="_blank">↗</a>
-    </div>
-
-    <div class="platform">
-        <span class="platform-name">🚀 منصة الأستاذ عبدالمعبود (فيزياء)</span>
-        <a href="#" target="_blank">↗</a>
-    </div>
-
-    <div class="platform">
-        <span class="platform-name">🚀 تطبيق الدكتور كيرلس (فيزياء)</span>
-        <a href="#" target="_blank">↗</a>
-    </div>
-
-    <div class="platform">
-        <span class="platform-name">🚀 منصة أشرف حسام (فيزياء)</span>
-        <a href="#" target="_blank">↗</a>
-    </div>
-
-    <div class="platform">
-        <span class="platform-name">🚀 منصة أحمد الجوهري (علوم وأحياء)</span>
-        <a href="#" target="_blank">↗</a>
-    </div>
-
-    <div class="platform">
-        <span class="platform-name">🚀 منصة محمد أيمن (أحياء)</span>
-        <a href="#" target="_blank">↗</a>
-    </div>
-
-    <div class="platform">
-        <span class="platform-name">🚀 منصة جمعة السيد (جغرافيا)</span>
-        <a href="#" target="_blank">↗</a>
-    </div>
-
-    <div class="platform">
-        <span class="platform-name">🚀 منصة أحمد عادل (تاريخ)</span>
-        <a href="#" target="_blank">↗</a>
-    </div>
-
-</div>
+  </div>
 
 </body>
-</html><a href="platforms.html" class="card">
-    <img src="images/platforms.jpg">
-
-    <div class="card-title">
-        🔗 المنصات التعليمية
-    </div>
-</a><a href="platforms.html" class="card">
-    <img src="images/platforms.jpg">
-
-    <div class="card-title">
-        🔗 المنصات التعليمية
-    </div>
-</
+</html>
