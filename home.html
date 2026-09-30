@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCQ4534WL5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-NCQ4534WL5');
+    </script>
+
+    <!-- أيقونة المنصة -->
+    <link rel="icon" type="image/png" href="منصات_التعليمية.png">
+    <link rel="apple-touch-icon" href="منصات_التعليمية.png">
+
+    <!-- ملف التطبيق -->
+    <link rel="manifest" href="manifest.json">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#0878e8">
+
+    <title>المنصات التعليمية</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- الهيدر -->
+    <header class="header">
+
+        <div class="top-nav">
+
+            <a href="#" id="logoutBtn" class="nav-item" style="cursor: pointer;">
+                <span class="icon">🚪</span>
+                <span>تسجيل الخروج</span>
+            </a>
+
+            <a href="home.html" class="home-button">
+                🏠
+            </a>
+
+            <a href="#" class="nav-item">
+                <span class="icon">▶</span>
+                <span>ترفيه</span>
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- المحتوى -->
+    <main class="container">
+
+        <!-- البانر الرئيسي -->
+        <section class="hero">
+
+            <img src="platforms_educational.png" alt="منصتي التعليمية">
+
+            <div class="hero-overlay">
+
+                <h1>منصات التعليمية</h1>
+
+                <h1>📚 Abdo Saad Educational Platform</h1>
+
+                <a href="subjects.html" style="color: white !important;">
+                    ابدأ التعلم
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- الكروت -->
+        <section class="cards">
+
+            <a href="summaries.html" class="card">
+                <img src="1_تلخيص_الدروس.png">
+            </a>
+
+            <a href="books.html" class="card">
+                <img src="2_الكتب_الخارجية_للحل.png"
+                     alt="الكتب الخارجية للحل">
+            </a>
+
+            <a href="tutorials.html" class="card">
+                <img src="3_الشروحات_والمقالات.png">
+            </a>
+
+            <a href="evaluations.html" class="card">
+                <img src="4_التقييمات_المدرسية.png">
+            </a>
+
+            <a href="catalog.html" class="card">
+                <img src="5_كتالوج_المنصة.png">
+            </a>
+
+            <a href="platforms.html" class="card">
+                <img src="6_المنصات_التعليمية.png">
+            </a>
+
+        </section>
+
+
+        <!-- قنواتنا -->
+        <section class="channels">
+
+            <h2>📢 قنواتنا بمجتمعنا الرسمي</h2>
+
+            <div class="channel-buttons">
+
+                <a href="https://youtube.com/@abdosaad-b3f?si=aPT7wJwxi3J54vM4"
+                   target="_blank"
+                   class="youtube">
+                    قناة اليوتيوب ▶
+                </a>
+
+                <a href="https://whatsapp.com/channel/0029Vb6VHDu8fewsc0sK2W0F"
+                   target="_blank"
+                   class="whatsapp">
+                    قناة الواتساب 📱
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- شريط التنقل السفلي -->
+    <nav class="bottom-nav">
+
+        <a href="home.html" class="bottom-item active">
+            <span>⌂</span>
+            <small>الرئيسية</small>
+        </a>
+
+        <a href="subjects.html" class="bottom-item">
+            <span>📚</span>
+            <small>المواد</small>
+        </a>
+
+        <a href="evaluations.html" class="bottom-item">
+            <span>📝</span>
+            <small>الاختبارات</small>
+        </a>
+
+        <a href="#" id="bottomLogout" class="bottom-item">
+            <span>🚪</span>
+            <small>خروج</small>
+        </a>
+
+    </nav>
+
+
+    <!-- كود التحقق من تسجيل الدخول وخروج المستخدم -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyDBZGXlXxyNUVJhT12Dq1qKEBtnLuGbMY4",
+          authDomain: "abdo-saad-educational-pl-7bb2e.firebaseapp.com",
+          projectId: "abdo-saad-educational-pl-7bb2e",
+          storageBucket: "abdo-saad-educational-pl-7bb2e.firebasestorage.app",
+          messagingSenderId: "846163564347",
+          appId: "1:846163564347:web:ddcbeb19338d8cae45091e",
+          measurementId: "G-8RTKN2BDBS"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // التحقق: لو المستخدم مش مسجل دخول، يرجعه لصفحة تسجيل الدخول (index.html)
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                window.location.href = "index.html";
+            }
+        });
+
+        // زر تسجيل الخروج
+        const handleLogout = () => {
+            signOut(auth).then(() => {
+                window.location.href = "index.html";
+            }).catch((error) => {
+                console.log(error);
+            });
+        };
+
+        document.getElementById("logoutBtn").addEventListener("click", handleLogout);
+        document.getElementById("bottomLogout").addEventListener("click", handleLogout);
+    </script>
+
+</body>
+
+</html>
