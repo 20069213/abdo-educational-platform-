@@ -17,13 +17,13 @@
 
     <div class="box">
         <h2>منصة عبده سعد التعليمية</h2>
-        <p>تسجيل الدخول أو إنشـاء حساب جديد</p>
+        <p>تسجيل الدخول أو إنشاء حساب جديد</p>
         
         <input type="email" id="email" placeholder="البريد الإلكتروني"><br>
         <input type="password" id="password" placeholder="كلمة المرور"><br>
         
         <button id="loginBtn">تسجيل الدخول</button>
-        <button id="signupBtn" style="background: #28a745;">إنشاء حساب جديد</button>
+        <button id="signupBtn" style="background: #28a745; margin-top: 5px;">إنشاء حساب جديد</button>
         
         <p id="message"></p>
     </div>
@@ -33,7 +33,6 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-        // إعدادات مشروعك اللي جبتها
         const firebaseConfig = {
           apiKey: "AIzaSyDBZGXlXxyNUVJhT12Dq1qKEBtnLuGbMY4",
           authDomain: "abdo-saad-educational-pl-7bb2e.firebaseapp.com",
@@ -44,20 +43,18 @@
           measurementId: "G-8RTKN2BDBS"
         };
 
-        // تهيئة فايربيس
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const message = document.getElementById("message");
 
-        // زر إنشاء حساب جديد
         document.getElementById("signupBtn").addEventListener("click", () => {
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
 
             createUserWithEmailAndPassword(auth, email, password)
-              .then((userCredential) => {
+              .then(() => {
                   message.style.color = "green";
-                  message.innerText = "تم إنشاء الحساب وتسجيل الدخول بنجاح! أهلاً بك.";
+                  message.innerText = "تم إنشاء الحساب وتسجيل الدخول بنجاح!";
               })
               .catch((error) => {
                   message.style.color = "red";
@@ -65,15 +62,14 @@
               });
         });
 
-        // زر تسجيل الدخول
         document.getElementById("loginBtn").addEventListener("click", () => {
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
 
             signInWithEmailAndPassword(auth, email, password)
-              .then((userCredential) => {
+              .then(() => {
                   message.style.color = "green";
-                  message.innerText = "تم تسجيل الدخول بنجاح! نورت المنصة.";
+                  message.innerText = "تم تسجيل الدخول بنجاح!";
               })
               .catch((error) => {
                   message.style.color = "red";
