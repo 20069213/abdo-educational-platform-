@@ -1,166 +1,141 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCQ4534WL5"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-NCQ4534WL5');
-    </script>
-
-    <!-- أيقونة المنصة -->
-    <link rel="icon" type="image/png" href="منصات_التعليمية.png">
-    <link rel="apple-touch-icon" href="منصات_التعليمية.png">
-
-    <!-- ملف التطبيق -->
-    <link rel="manifest" href="manifest.json">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="theme-color" content="#0878e8">
-
-    <title>المنصات التعليمية</title>
-
-    <link rel="stylesheet" href="style.css">
-
+    <title>منصة عبده سعد التعليمية - تسجيل الدخول</title>
+    <style>
+        body { 
+            font-family: Tahoma, sans-serif; 
+            background: linear-gradient(135deg, #0878e8, #0056b3); 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .box { 
+            background: white; 
+            width: 90%;
+            max-width: 400px; 
+            padding: 30px; 
+            border-radius: 15px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
+            text-align: center; 
+        }
+        h2 { color: #0878e8; margin-bottom: 5px; }
+        p { color: #666; margin-bottom: 20px; font-size: 14px; }
+        input { 
+            width: 100%; 
+            padding: 12px; 
+            margin: 10px 0; 
+            border: 1px solid #ddd; 
+            border-radius: 8px; 
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+        button { 
+            background: #0878e8; 
+            color: white; 
+            border: none; 
+            padding: 12px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            width: 100%; 
+            margin-top: 10px; 
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        button:hover { background: #0056b3; }
+        .signup-btn { background: #28a745; }
+        .signup-btn:hover { background: #218838; }
+        #message { margin-top: 15px; font-weight: bold; font-size: 14px; }
+    </style>
 </head>
-
 <body>
 
-    <!-- الهيدر -->
-    <header class="header">
+    <div class="box">
+        <h2>منصة عبده سعد التعليمية</h2>
+        <p>قم بتسجيل الدخول أو إنشاء حساب للبدء</p>
+        
+        <input type="email" id="email" placeholder="البريد الإلكتروني"><br>
+        <input type="password" id="password" placeholder="كلمة المرور"><br>
+        
+        <button id="loginBtn">تسجيل الدخول</button>
+        <button id="signupBtn" class="signup-btn">إنشاء حساب جديد</button>
+        
+        <p id="message"></p>
+    </div>
 
-        <div class="top-nav">
+    <!-- كود فايربيس للتحقق -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-            <a href="#" class="nav-item">
-                <span class="icon">👤</span>
-                <span>حسابي</span>
-            </a>
+        const firebaseConfig = {
+          apiKey: "AIzaSyDBZGXlXxyNUVJhT12Dq1qKEBtnLuGbMY4",
+          authDomain: "abdo-saad-educational-pl-7bb2e.firebaseapp.com",
+          projectId: "abdo-saad-educational-pl-7bb2e",
+          storageBucket: "abdo-saad-educational-pl-7bb2e.firebasestorage.app",
+          messagingSenderId: "846163564347",
+          appId: "1:846163564347:web:ddcbeb19338d8cae45091e",
+          measurementId: "G-8RTKN2BDBS"
+        };
 
-            <a href="#" class="home-button">
-                🏠
-            </a>
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const message = document.getElementById("message");
 
-            <a href="#" class="nav-item">
-                <span class="icon">▶</span>
-                <span>ترفيه</span>
-            </a>
+        document.getElementById("signupBtn").addEventListener("click", () => {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
 
-        </div>
+            if(!email || !password) {
+                message.style.color = "red";
+                message.innerText = "برجاء كتابة البريد وكلمة المرور.";
+                return;
+            }
 
-    </header>
+            createUserWithEmailAndPassword(auth, email, password)
+              .then(() => {
+                  message.style.color = "green";
+                  message.innerText = "تم إنشاء الحساب بنجاح! جاري فتح المنصة...";
+                  setTimeout(() => {
+                      window.location.href = "home.html"; // يحوله لصفحة المنصة
+                  }, 1200);
+              })
+              .catch((error) => {
+                  message.style.color = "red";
+                  message.innerText = "خطأ: " + error.message;
+              });
+        });
 
+        document.getElementById("loginBtn").addEventListener("click", () => {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
 
-    <!-- المحتوى -->
-    <main class="container">
+            if(!email || !password) {
+                message.style.color = "red";
+                message.innerText = "برجاء كتابة البريد وكلمة المرور.";
+                return;
+            }
 
-        <!-- البانر الرئيسي -->
-        <section class="hero">
-
-            <img src="platforms_educational.png" alt="منصتي التعليمية">
-
-            <div class="hero-overlay">
-
-                <h1>منصات التعليمية</h1>
-
-                <h1>📚 Abdo Saad Educational Platform</h1>
-
-                <a href="subjects.html" style="color: white !important;">
-                    ابدأ التعلم
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- الكروت -->
-        <section class="cards">
-
-            <a href="summaries.html" class="card">
-                <img src="1_تلخيص_الدروس.png">
-            </a>
-
-            <a href="books.html" class="card">
-                <img src="2_الكتب_الخارجية_للحل.png"
-                     alt="الكتب الخارجية للحل">
-            </a>
-
-            <a href="tutorials.html" class="card">
-                <img src="3_الشروحات_والمقالات.png">
-            </a>
-
-            <a href="evaluations.html" class="card">
-                <img src="4_التقييمات_المدرسية.png">
-            </a>
-
-            <a href="catalog.html" class="card">
-                <img src="5_كتالوج_المنصة.png">
-            </a>
-
-            <a href="platforms.html" class="card">
-                <img src="6_المنصات_التعليمية.png">
-            </a>
-
-        </section>
-
-
-        <!-- قنواتنا -->
-        <section class="channels">
-
-            <h2>📢 قنواتنا بمجتمعنا الرسمي</h2>
-
-            <div class="channel-buttons">
-
-                <a href="https://youtube.com/@abdosaad-b3f?si=aPT7wJwxi3J54vM4"
-                   target="_blank"
-                   class="youtube">
-                    قناة اليوتيوب ▶
-                </a>
-
-                <a href="https://whatsapp.com/channel/0029Vb6VHDu8fewsc0sK2W0F"
-                   target="_blank"
-                   class="whatsapp">
-                    قناة الواتساب 📱
-                </a>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- شريط التنقل السفلي -->
-    <nav class="bottom-nav">
-
-        <a href="#" class="bottom-item active">
-            <span>⌂</span>
-            <small>الرئيسية</small>
-        </a>
-
-        <a href="#" class="bottom-item">
-            <span>📚</span>
-            <small>المواد</small>
-        </a>
-
-        <a href="#" class="bottom-item">
-            <span>📝</span>
-            <small>الاختبارات</small>
-        </a>
-
-        <a href="#" class="bottom-item">
-            <span>👤</span>
-            <small>حسابي</small>
-        </a>
-
-    </nav>
+            signInWithEmailAndPassword(auth, email, password)
+              .then(() => {
+                  message.style.color = "green";
+                  message.innerText = "تم تسجيل الدخول بنجاح! جاري فتح المنصة...";
+                  setTimeout(() => {
+                      window.location.href = "home.html"; // يحوله لصفحة المنصة
+                  }, 1200);
+              })
+              .catch((error) => {
+                  message.style.color = "red";
+                  message.innerText = "خطأ في البريد أو كلمة المرور.";
+              });
+        });
+    </script>
 
 </body>
-
 </html>
