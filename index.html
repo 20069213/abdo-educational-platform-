@@ -27,49 +27,6 @@
     <title>المنصات التعليمية</title>
 
     <link rel="stylesheet" href="style.css">
-    
-    <style>
-        .auth-section {
-            background: white;
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        .auth-section input {
-            width: 90%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 14px;
-        }
-        .auth-section button {
-            background: #0878e8;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            width: 95%;
-            margin-top: 10px;
-            font-size: 15px;
-            font-weight: bold;
-        }
-        .auth-section button.signup-btn {
-            background: #28a745;
-        }
-        .auth-section button:hover {
-            opacity: 0.9;
-        }
-        #auth-message {
-            margin-top: 15px;
-            font-weight: bold;
-            font-size: 14px;
-        }
-    </style>
 
 </head>
 
@@ -119,21 +76,6 @@
 
             </div>
 
-        </section>
-
-
-        <!-- قسم تسجيل الدخول وإنشاء الحساب (Firebase) -->
-        <section class="auth-section">
-            <h3>تسجيل الدخول / إنشاء حساب</h3>
-            <p style="font-size: 13px; color: #666;">سجل بياناتك للوصول لمميزات المنصة</p>
-            
-            <input type="email" id="email" placeholder="البريد الإلكتروني"><br>
-            <input type="password" id="password" placeholder="كلمة المرور"><br>
-            
-            <button id="loginBtn">تسجيل الدخول</button>
-            <button id="signupBtn" class="signup-btn">إنشاء حساب جديد</button>
-            
-            <p id="auth-message"></p>
         </section>
 
 
@@ -218,56 +160,6 @@
         </a>
 
     </nav>
-
-    <!-- كود فايربيس وتشغيل المصادقة -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-
-        const firebaseConfig = {
-          apiKey: "AIzaSyDBZGXlXxyNUVJhT12Dq1qKEBtnLuGbMY4",
-          authDomain: "abdo-saad-educational-pl-7bb2e.firebaseapp.com",
-          projectId: "abdo-saad-educational-pl-7bb2e",
-          storageBucket: "abdo-saad-educational-pl-7bb2e.firebasestorage.app",
-          messagingSenderId: "846163564347",
-          appId: "1:846163564347:web:ddcbeb19338d8cae45091e",
-          measurementId: "G-8RTKN2BDBS"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const message = document.getElementById("auth-message");
-
-        document.getElementById("signupBtn").addEventListener("click", () => {
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-
-            createUserWithEmailAndPassword(auth, email, password)
-              .then(() => {
-                  message.style.color = "green";
-                  message.innerText = "تم إنشاء الحساب وتسجيل الدخول بنجاح! أهلاً بك.";
-              })
-              .catch((error) => {
-                  message.style.color = "red";
-                  message.innerText = "خطأ: " + error.message;
-              });
-        });
-
-        document.getElementById("loginBtn").addEventListener("click", () => {
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-
-            signInWithEmailAndPassword(auth, email, password)
-              .then(() => {
-                  message.style.color = "green";
-                  message.innerText = "تم تسجيل الدخول بنجاح! نورت المنصة.";
-              })
-              .catch((error) => {
-                  message.style.color = "red";
-                  message.innerText = "خطأ في البريد أو كلمة المرور.";
-              });
-        });
-    </script>
 
 </body>
 
