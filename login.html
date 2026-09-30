@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة عبده سعد التعليمية - تسجيل الدخول</title>
+    <style>
+        body { font-family: Tahoma, sans-serif; background-color: #f4f4f9; text-align: center; padding: 50px; }
+        .box { background: white; max-width: 400px; margin: 0 auto; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        input { width: 90%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
+        button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; width: 95%; margin-top: 10px; }
+        button:hover { background: #0056b3; }
+        #message { margin-top: 15px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>منصة عبده سعد التعليمية</h2>
+        <p>تسجيل الدخول أو إنشـاء حساب جديد</p>
+        
+        <input type="email" id="email" placeholder="البريد الإلكتروني"><br>
+        <input type="password" id="password" placeholder="كلمة المرور"><br>
+        
+        <button id="loginBtn">تسجيل الدخول</button>
+        <button id="signupBtn" style="background: #28a745;">إنشاء حساب جديد</button>
+        
+        <p id="message"></p>
+    </div>
+
+    <!-- كود فايربيس وتشغيل المصادقة -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+        // إعدادات مشروعك اللي جبتها
+        const firebaseConfig = {
+          apiKey: "AIzaSyDBZGXlXxyNUVJhT12Dq1qKEBtnLuGbMY4",
+          authDomain: "abdo-saad-educational-pl-7bb2e.firebaseapp.com",
+          projectId: "abdo-saad-educational-pl-7bb2e",
+          storageBucket: "abdo-saad-educational-pl-7bb2e.firebasestorage.app",
+          messagingSenderId: "846163564347",
+          appId: "1:846163564347:web:ddcbeb19338d8cae45091e",
+          measurementId: "G-8RTKN2BDBS"
+        };
+
+        // تهيئة فايربيس
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const message = document.getElementById("message");
+
+        // زر إنشاء حساب جديد
+        document.getElementById("signupBtn").addEventListener("click", () => {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            createUserWithEmailAndPassword(auth, email, password)
+              .then((userCredential) => {
+                  message.style.color = "green";
+                  message.innerText = "تم إنشاء الحساب وتسجيل الدخول بنجاح! أهلاً بك.";
+              })
+              .catch((error) => {
+                  message.style.color = "red";
+                  message.innerText = "خطأ: " + error.message;
+              });
+        });
+
+        // زر تسجيل الدخول
+        document.getElementById("loginBtn").addEventListener("click", () => {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            signInWithEmailAndPassword(auth, email, password)
+              .then((userCredential) => {
+                  message.style.color = "green";
+                  message.innerText = "تم تسجيل الدخول بنجاح! نورت المنصة.";
+              })
+              .catch((error) => {
+                  message.style.color = "red";
+                  message.innerText = "خطأ في البريد أو كلمة المرور.";
+              });
+        });
+    </script>
+
+</body>
+</html>
