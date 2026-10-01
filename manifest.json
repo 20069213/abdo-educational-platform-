@@ -1,13 +1,14 @@
 {
   "name": "المنصات التعليمية",
   "short_name": "المنصات",
-  "start_url": "./",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#00ffff",
   "icons": [
     {
-      "src": "icon.png",
+      "src": "./icon.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
